@@ -1,12 +1,19 @@
-# Getting Started with Create React App
+# Getting Started with React Laravel Pagin
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple tool which enables people who works with react with backend of laravel api and wanted to consume the laravel pagination results.
 
-## Available Scripts
+Its makes easy flexible and friendly, you just focus on looks of your UI and not the mechanics of laravel pagination results on your react app
 
-In the project directory, you can run:
+## Installing
 
-### `npm start`
+on your root directory
+`npm install react-laravel-pagin`
+
+and you're all set to start using your lovely tool
+
+### Using `react-laravel-pagin`
+
+suppose your laravel api is as below `http://localhost:8000/api/users`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.

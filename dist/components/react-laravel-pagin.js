@@ -13,11 +13,7 @@ require("core-js/modules/es.promise.js");
 
 var _axios = _interopRequireDefault(require("axios"));
 
-var _react = _interopRequireWildcard(require("react"));
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var _react = require("react");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38,7 +34,7 @@ const ReactLaravelPagin = props => {
   (0, _react.useEffect)(() => {
     fetchData(url);
   }, [baseLink, url]);
-  if (!baseLink || baseLink.trim().length < 1) return /*#__PURE__*/_react.default.createElement("div", null);
+  if (!baseLink || baseLink.trim().length < 1) return /*#__PURE__*/React.createElement("div", null);
 
   const fetchData = async url => {
     setIsLoading(true);
@@ -65,28 +61,28 @@ const ReactLaravelPagin = props => {
     setIsLoading(false);
   };
 
-  return /*#__PURE__*/_react.default.createElement("div", null, links.map(_ref => {
+  return /*#__PURE__*/React.createElement("div", null, links.map(_ref => {
     let {
       url,
       label,
       active
     } = _ref;
-    if (customDots && label === "...") return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, customDots());
-    if (customPrev && label === "&laquo; Previous") return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, customPrev({
+    if (customDots && label === "...") return /*#__PURE__*/React.createElement(React.Fragment, null, customDots());
+    if (customPrev && label === "&laquo; Previous") return /*#__PURE__*/React.createElement(React.Fragment, null, customPrev({
       onClick: () => {
         if (url) {
           setUrl(url);
         }
       }
     }));
-    if (customNext && label === "Next &raquo;") return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, customNext({
+    if (customNext && label === "Next &raquo;") return /*#__PURE__*/React.createElement(React.Fragment, null, customNext({
       onClick: () => {
         if (url) {
           setUrl(url);
         }
       }
     }));
-    return /*#__PURE__*/_react.default.createElement(PageLink, {
+    return /*#__PURE__*/React.createElement(PageLink, {
       key: label,
       label: label,
       url: url,
@@ -108,7 +104,7 @@ const PageLink = props => {
     active
   } = props;
   const styling = linkStyle ? linkStyle(active, label === "&laquo; Previous", label === "Next &raquo;") : "";
-  return /*#__PURE__*/_react.default.createElement("span", {
+  return /*#__PURE__*/React.createElement("span", {
     className: "".concat(styling),
     onClick: () => {
       if (url) {

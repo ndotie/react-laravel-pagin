@@ -92,24 +92,24 @@ inside this function returns the style which will be applied the respective pagi
 
 You're adviced to create you're component ready on `customPrev` and `customNext` in the case of styling and not depend on `linkStyle`
 
-`<ReactLaravelPagin
+<ReactLaravelPagin
 
-baseLink="http://localhost:8000/api/users"
+        baseLink="http://localhost:8000/api/users"
 
-    headers={{Authorization : "Bearer " + 'you're token'}}
+        headers={{Authorization : "Bearer " + 'you're token'}}
 
-    setIsLoading={setIsLoading}
+        setIsLoading={setIsLoading}
 
-    dataPicker={(data) => data.users}
+        dataPicker={(data) => data.users}
 
-    setDataList={setUsers}
+        setDataList={setUsers}
 
-    customDots={() => <h3 className="d-inline-block">...</h3>}
+        customDots={() => <h3 className="d-inline-block">...</h3>}
 
-    customPrev={(props) => <span {...props}>prev</span>}
+        customPrev={(props) => <span {...props}>prev</span>}
 
-    customNext={(props) => <span {...props}>next</span>}
+        customNext={(props) => <span {...props}>next</span>}
 
-    linkStyle={(active, prev, next) => `btn ${active ? "btn-success" : "btn-default"} mx-1` }
+        linkStyle={(active, prev, next) => `btn ${active ? "btn-success" : "btn-default"} mx-1` }
 
 />`

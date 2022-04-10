@@ -1,11 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
+  useEffect(() => {}, []);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -23,3 +20,9 @@ function App() {
 }
 
 export default App;
+
+/**
+ * https://github.com/developit/microbundle#usage
+ * https://www.fabiofranchino.com/blog/create-react-reusable-components-library-with-microbundle/
+ * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+ */

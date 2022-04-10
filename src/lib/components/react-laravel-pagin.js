@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 
 export const ReactLaravelPagin = (props) => {
@@ -22,7 +21,11 @@ export const ReactLaravelPagin = (props) => {
   const fetchData = async (url) => {
     setIsLoading(true);
     try {
-      let results = await axios.get(url ? url : baseLink, headers);
+      let results = await fetch(url ? url : baseLink, {
+        method: "GET",
+        headers: headers,
+      });
+      console.log(results);
       if (results && results.data) {
         results = dataPicker(results.data); //pealing only the data we need!!
         console.log(results);

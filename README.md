@@ -17,7 +17,8 @@ inside the page you need paginator
 `import {ReactLaravelPagin} from 'react-laravel-pagin'`
 
 and use your component as
-`<ReactLaravelPagin
+
+     <ReactLaravelPagin
 
         baseLink=`laravel-api-end-point`
 
@@ -42,7 +43,7 @@ and use your component as
           `btn ${active ? "btn-success" : "btn-default"} mx-1`
         }
 
-      />`
+      />
 
 ### Props definition
 
@@ -92,7 +93,7 @@ inside this function returns the style which will be applied the respective pagi
 
 You're adviced to create you're component ready on `customPrev` and `customNext` in the case of styling and not depend on `linkStyle`
 
-       <ReactLaravelPagin
+    <ReactLaravelPagin
 
         baseLink="http://localhost:8000/api/users"
 
@@ -112,4 +113,4 @@ You're adviced to create you're component ready on `customPrev` and `customNext`
 
         linkStyle={(active, prev, next) => `btn ${active ? "btn-success" : "btn-default"} mx-1` }
 
-/>`
+    />`

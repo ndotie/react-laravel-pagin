@@ -1,4 +1,4 @@
-# Getting Started with React Laravel Pagin
+# Introduction React Laravel Pagin
 
 This is a simple tool which enables people who works with react with backend of laravel api and wanted to consume the laravel pagination results.
 
@@ -13,65 +13,36 @@ and you're all set to start using your lovely tool
 
 ### Using `react-laravel-pagin`
 
-suppose your laravel api is as below `http://localhost:8000/api/users`
+inside the page you need paginator
+`import {ReactLaravelPagin} from 'react-laravel-pagin'`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+and use your component as
+`<ReactLaravelPagin baseLink=`laravel-api-end-point` headers={{ ... //You're headers }} setIsLoading={setIsLoading} dataPicker={(data) => data.trips} setDataList={setTrips} customDots={() => <h3 className="d-inline-block">...</h3>} customPrev={(props) => <span {...props}>prev</span>} customNext={(props) => <span {...props}>next</span>} linkStyle={(active, prev, next) => `btn ${active ? "btn-success" : "btn-default"} mx-1` } />`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Props definition
 
-### `npm test`
+`baseLink` is a link to laravel-api which gives paginated results example `http://localhost:8000/api/users` just the link itself and no more parameters to it
+`headers` is object of http headers since sometimes you need authorization to be able to access some end points
+if there is more header just comma separate them on the headers object :)
+`setIsLoading` in here just pass in a function which receives either true/false it could be from hooks from which you can trigger loading... state so users gets feedback
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`dataPicker` receives a callback function which will receive a response from the server this response will be inside object called `data`
+so on laravel api we have custom of giving response as below
+` return response()->json(([ 'status' => 200, 'users' => $users ]));`
 
-### `npm run build`
+so on dataPicker function `(data) => data.users` actually states that the data you really want to work with is inside users property
+`setDataList` This is a function which receives the data in this case could be users to displayed on the page, not pagination links, really data of users, it could be customers or mybe products etc, for react best practice you can pass i a hook as below
+`const [users, setUsers] = useState([])`
+observe how the `setUsers` function is injected into the component and so when we have those users we can actually access them on `users` variable :)
+`customDots` actually passes in a component which will replace the default ... dots on long pagination
+`customPrev` passes a component which will replace default prev component
+###Note:
+Make sure you pass in the props on the `customPrev` and `customNext` since they hold other functionalities
+`linkStyle` Receives function which you can use to customize the css looks of the component to blend in for your site
+this function receives three parameters, active => if the link is active boolean, prev => true if this link is prev link, next => true if the link is next link,
+inside this function returns the style which will be applied the respective pagination link
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###Note:
+You're adviced to create you're component ready on `customPrev` and `customNext` in the case of styling and not depend on `linkStyle`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`<ReactLaravelPagin baseLink="http://localhost:8000/api/users" headers={{Authorization : "Bearer " + 'you're token'}} setIsLoading={setIsLoading} dataPicker={(data) => data.users} setDataList={setUsers} customDots={() => <h3 className="d-inline-block">...</h3>} customPrev={(props) => <span {...props}>prev</span>} customNext={(props) => <span {...props}>next</span>} linkStyle={(active, prev, next) => `btn ${active ? "btn-success" : "btn-default"} mx-1` } />`

@@ -92,7 +92,7 @@ inside this function returns the style which will be applied the respective pagi
 
 You're adviced to create you're component ready on `customPrev` and `customNext` in the case of styling and not depend on `linkStyle`
 
-<ReactLaravelPagin
+    <ReactLaravelPagin
 
         baseLink="http://localhost:8000/api/users"
 

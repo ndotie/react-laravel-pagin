@@ -1,6 +1,6 @@
 {
   "name": "react-laravel-pagin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "ndotie",
   "keywords": ["react", "components", "ui"],
   "main": "dist/index.js",

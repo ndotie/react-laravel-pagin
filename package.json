@@ -5,7 +5,10 @@
   "keywords": ["react", "components", "ui"],
   "main": "dist/index.js",
 "module": "dist/index.js",
-
+"repository": {
+    "type": "git",
+    "url": "https://github.com/ndotie/react-laravel-pagin.git"
+},
 "files": [ "dist", "README.md" ],
   "private": false,
   "dependencies": {

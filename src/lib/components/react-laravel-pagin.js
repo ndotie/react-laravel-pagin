@@ -28,7 +28,7 @@ export const ReactLaravelPagin = (props) => {
         console.log(results);
         if (results && results.data && results.links) {
           //   setDataList(results); //we have todo on this one!!
-          setLinks(results.links);
+          setLinks(results.links || []);
           setDataList(results.data);
         } else {
           setDataList([]); //Just setting it as only empty array for the time being!!

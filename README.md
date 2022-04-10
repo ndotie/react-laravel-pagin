@@ -53,6 +53,16 @@ if there is more header just comma separate them on the headers object :)
 
 `setIsLoading` in here just pass in a function which receives either true/false it could be from hooks from which you can trigger loading... state so users gets feedback
 
+as `const [isLoading, setIsLoading] = useState(false)` so instead of triggering `setIsLoading(true)` manually
+
+you just pass `setIsLoading` to the ReactLaravelPagin and it'll handle the rest for you as below
+
+    `<ReactLaravelPagin
+    ...
+    setIsLoading = {setIsLoading}
+
+    > `
+
 `dataPicker` receives a callback function which will receive a response from the server this response will be inside object called `data`
 
 so on laravel api we have custom of giving response as below
@@ -82,7 +92,9 @@ inside this function returns the style which will be applied the respective pagi
 
 You're adviced to create you're component ready on `customPrev` and `customNext` in the case of styling and not depend on `linkStyle`
 
-`<ReactLaravelPagin baseLink="http://localhost:8000/api/users"
+`<ReactLaravelPagin
+
+baseLink="http://localhost:8000/api/users"
 
     headers={{Authorization : "Bearer " + 'you're token'}}
 

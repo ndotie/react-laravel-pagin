@@ -25,9 +25,9 @@ export const ReactLaravelPagin = (props) => {
         method: "GET",
         headers: headers,
       });
-      console.log(results);
-      if (results && results.data) {
-        results = dataPicker(results.data); //pealing only the data we need!!
+      results = await results.json();
+      if (results) {
+        results = dataPicker(results); //pealing only the data we need!!
         console.log(results);
         if (results && results.data && results.links) {
           //   setDataList(results); //we have todo on this one!!

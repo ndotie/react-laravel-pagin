@@ -1,15 +1,14 @@
 {
   "name": "react-laravel-pagin",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "author": "ndotie",
   "keywords": [
     "react",
     "components",
-    "ui"
-  ], 
-  "main": "./dist/lib.umd.js", 
-  "module": "./dist/lib.module.js",
-  "source": "src/lib/index.js",
+    "ui",
+    "pagination"
+  ],
+  "module": "dist/index.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/ndotie/react-laravel-pagin.git"
@@ -21,20 +20,22 @@
   "private": false,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "@babel/runtime": "^7.17.9",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react-dom": "^18.0.0", 
     "react-scripts": "5.0.0",
+    "rollup": "^2.70.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "del dist && cross-env NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:lib": "microbundle --jsx React.createElement --jsxFragment React.Fragment --jsxImportSource react"
+    "prebuild": "rimraf dist",
+    "build": "rollup -c"
   },
   "eslintConfig": {
     "extends": [
@@ -57,8 +58,10 @@
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.9",
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
-    "cross-env": "^7.0.3",
-    "microbundle": "^0.14.2"
+    "@babel/preset-react": "^7.16.7",
+    "@rollup/plugin-babel": "^5.3.1",
+    "cross-env": "^7.0.3"
   }
 }

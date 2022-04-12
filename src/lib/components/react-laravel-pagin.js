@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { Component, PropTypes } from "react";
 
 export const ReactLaravelPagin = (props) => {
   const {
@@ -12,9 +12,9 @@ export const ReactLaravelPagin = (props) => {
     customPrev,
     customNext,
   } = props;
-  const [links, setLinks] = useState([]);
-  const [url, setUrl] = useState();
-  useEffect(() => {
+  const [links, setLinks] = React.useState([]);
+  const [url, setUrl] = React.useState();
+  React.useEffect(() => {
     fetchData(url);
   }, [baseLink, url]);
   if (!baseLink || baseLink.trim().length < 1) return <div />;
@@ -25,8 +25,8 @@ export const ReactLaravelPagin = (props) => {
         method: "GET",
         headers: headers,
       });
-      results = await results.json();
       if (results) {
+        results = await results.json();
         results = dataPicker(results); //pealing only the data we need!!
         console.log(results);
         if (results && results.data && results.links) {

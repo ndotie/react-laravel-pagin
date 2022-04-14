@@ -19,6 +19,8 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.17.9",
+    "@babel/preset-react": "^7.16.7",
+    "@rollup/plugin-node-resolve": "^13.2.0",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-interactions": "^6.4.22",
@@ -27,7 +29,10 @@
     "@storybook/testing-library": "0.0.9",
     "babel-loader": "^8.2.4",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "rollup": "^2.70.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4"
   },
   "dependencies": {},
   "scripts": {

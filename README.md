@@ -21,7 +21,7 @@ and use your component as
 
      <ReactLaravelPagin
 
-        baseLink=`laravel-api-end-point`
+        baseLink='http://localhost:8000/api/users'
 
         headers={{
              ...
@@ -45,6 +45,9 @@ and use your component as
         }
 
       />
+
+if you've putted everything right and still you're getting some error or unexpected results, email me on abnmshabaha@gmail.com
+so we can collaborate to see where you've stuck with our library
 
 ### Props definition
 

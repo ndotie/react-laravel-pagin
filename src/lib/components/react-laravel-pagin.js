@@ -30,7 +30,6 @@ export const ReactLaravelPagin = (props) => {
 
         results = dataPicker(results); //pealing only the data we need!!
 
-        console.log(results);
         if (results && results.data && results.links) {
           //   setDataList(results); //we have todo on this one!!
           setLinks(results.links || []);
@@ -46,7 +45,6 @@ export const ReactLaravelPagin = (props) => {
   };
   return (
     <div>
-      <h3>This get shown</h3>
       {links.map(({ url, label, active }) => {
         if (customDots && label === "...") return <>{customDots()}</>;
         if (customPrev && label === "&laquo; Previous")

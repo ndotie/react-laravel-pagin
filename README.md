@@ -1,5 +1,6 @@
 # Introduction React Laravel Pagin
 
+#Note Fixed our femous error of `null of useState` Enjoy
 This is a simple tool which enables people who works with react with backend of laravel api and wanted to consume the laravel pagination results.
 
 Its makes easy flexible and friendly, you just focus on looks of your UI and not the mechanics of laravel pagination results on your react app

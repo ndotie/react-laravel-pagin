@@ -25,7 +25,10 @@ and use your component as
 
         headers={{
              ...
-         //You're headers
+         //You're headers,
+         Access : `Bearer ${token}`,
+         X-Custom-Header : `Some crazy header`,
+
         }}
 
         setIsLoading={setIsLoading}
@@ -62,11 +65,11 @@ as `const [isLoading, setIsLoading] = useState(false)` so instead of triggering 
 
 you just pass `setIsLoading` to the ReactLaravelPagin and it'll handle the rest for you as below
 
-    `<ReactLaravelPagin
+     <ReactLaravelPagin
     ...
     setIsLoading = {setIsLoading}
 
-    > `
+    >
 
 `dataPicker` receives a callback function which will receive a response from the server this response will be inside object called `data`
 
@@ -86,35 +89,45 @@ observe how the `setUsers` function is injected into the component and so when w
 
 `customPrev` passes a component which will replace default prev component
 
-###Note:
+### Note:
+
 Make sure you pass in the props on the `customPrev` and `customNext` since they hold other functionalities
 
 `linkStyle` Receives function which you can use to customize the css looks of the component to blend in for your site
 this function receives three parameters, active => if the link is active boolean, prev => true if this link is prev link, next => true if the link is next link,
 inside this function returns the style which will be applied the respective pagination link
 
-###Note:
+### Note:
 
 You're adviced to create you're component ready on `customPrev` and `customNext` in the case of styling and not depend on `linkStyle`
 
-    <ReactLaravelPagin
+For `react-laravel-pagin` to work here is short summary
 
-        baseLink="http://localhost:8000/api/users"
+            const [isLoading, setIsLoading] = useState(false);
+            const [dataList, setDataList] = useState([]);
+            //Make sure you pass props for customPrev and customNext as shown on example
+            //Instead of <span> tags you can use whatever your tags are but make sure to pass props in as shown
 
-        headers={{Authorization : "Bearer " + 'you're token'}}
+             ....
 
-        setIsLoading={setIsLoading}
+            <ReactLaravelPagin
 
-        dataPicker={(data) => data.users}
+            baseLink="http://localhost:8000/api/users"
 
-        setDataList={setUsers}
+            headers={{Authorization : "Bearer " + 'you're token'}}
 
-        customDots={() => <h3 className="d-inline-block">...</h3>}
+            setIsLoading={setIsLoading}
 
-        customPrev={(props) => <span {...props}>prev</span>}
+            dataPicker={(data) => data.users}
 
-        customNext={(props) => <span {...props}>next</span>}
+            setDataList={setUsers}
 
-        linkStyle={(active, prev, next) => `btn ${active ? "btn-success" : "btn-default"} mx-1` }
+            customDots={() => <h3 className="d-inline-block">...</h3>}
+
+            customPrev={(props) => <span {...props}>prev</span>}
+
+            customNext={(props) => <span {...props}>next</span>}
+
+            linkStyle={(active, prev, next) => `btn ${active ? "btn-success" : "btn-default"} mx-1` }
 
     />`
